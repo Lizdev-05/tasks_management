@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tasks_management/splash_screen.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -25,7 +26,9 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed("/");
+              },
             ),
           ),
         ],
@@ -42,7 +45,7 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -153,7 +156,197 @@ class Dashboard extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Monthly Review",
+                    style: GoogleFonts.lato(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadiusDirectional.circular(30),
+                    child: Container(
+                      color: Color.fromARGB(255, 194, 129, 235),
+                      height: 50,
+                      width: 50,
+                      child: const Icon(
+                        Icons.calendar_month,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: [
+                Flexible(
+                  child: Column(
+                    children: [
+                      Card(
+                        color: Color.fromARGB(255, 194, 129, 235),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 35.0, vertical: 10),
+                          child: Container(
+                            height: 150,
+                            width: 100,
+                            child: Center(
+                              child: RichText(
+                                text: TextSpan(
+                                  text: "22 \n",
+                                  style: GoogleFonts.lato(
+                                      fontSize: 30,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800),
+                                  children: [
+                                    TextSpan(
+                                      text: "Done",
+                                      style: GoogleFonts.lato(
+                                          fontSize: 18, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Card(
+                        color: const Color.fromARGB(255, 194, 129, 235),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 25.0, vertical: 25),
+                          child: Center(
+                            child: RichText(
+                              text: TextSpan(
+                                text: "10 \n",
+                                style: GoogleFonts.lato(
+                                    fontSize: 30,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800),
+                                children: [
+                                  TextSpan(
+                                    text: "Ongoing",
+                                    style: GoogleFonts.lato(
+                                        fontSize: 18, color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Flexible(
+                  child: Column(
+                    children: [
+                      Card(
+                        color: const Color.fromARGB(255, 194, 129, 235),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 25.0, vertical: 25),
+                          child: Center(
+                            child: RichText(
+                              text: TextSpan(
+                                text: "7 \n",
+                                style: GoogleFonts.lato(
+                                    fontSize: 30,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800),
+                                children: [
+                                  TextSpan(
+                                    text: "in progress",
+                                    style: GoogleFonts.lato(
+                                        fontSize: 18, color: Colors.white),
+                                  ),
+                                ],
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Card(
+                        color: const Color.fromARGB(255, 194, 129, 235),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 35.0, vertical: 10),
+                          child: Container(
+                            height: 150,
+                            width: 100,
+                            child: Center(
+                              child: RichText(
+                                text: TextSpan(
+                                  text: "12 \n",
+                                  style: GoogleFonts.lato(
+                                      fontSize: 30,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w800),
+                                  children: [
+                                    TextSpan(
+                                      text: "Waiting for review",
+                                      style: GoogleFonts.lato(
+                                          fontSize: 18, color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
+        child: BottomNavigationBar(
+          backgroundColor: const Color.fromARGB(255, 92, 15, 155),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: "",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.notifications,
+              ),
+              label: "",
+            ),
+          ],
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: const Color.fromARGB(255, 16, 135, 233),
+          unselectedItemColor: Color.fromARGB(162, 206, 159, 235),
         ),
       ),
     );
